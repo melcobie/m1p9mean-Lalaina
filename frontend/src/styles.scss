@@ -11,6 +11,7 @@
     --theme-bg-color: #fafafb;
     --body-font: "Poppins", sans-serif;
     --nav-font: "Carrois Gothic SC", sans-serif;
+    --footer-font: "Open Sans", sans-serif;
     --body-color: #272d2f;
     --brand-color: #272d2f;
     --nav-color: #505d5f;
@@ -26,6 +27,7 @@ html, body{
     /* margin: 0px;
     width: 100%;
     height: 100%; */
+    min-height: 100vh;
     overflow-x: hidden;
     font-family : Arial, Helvetica, sans-serif;
     background-color: var(--body-bg-color);
@@ -78,8 +80,27 @@ html, body{
     align-items: center;
 }
 
+.footer{
+    background-color: var(--body-color);
+    color: var(--body-bg-color);
+    padding-left: 30px;
+    padding-top: 20px;
+    font-size: smaller;
+    font-family: var(--body-font);
+}
+
+.footer h4{
+    margin-left: 20px;
+    font-family: var(--nav-font);
+}
+
+.footer ul{
+    list-style: none;
+    margin-left: 0;
+}
+
 @media screen and (max-width:768px) {
-    html, body{
-        
+    body{
+        min-height: 100vh;
     }
 }
