@@ -1,1 +1,85 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  outline: none;
+  box-sizing: border-box;
+}
+
+:root {
+    --body-bg-color: #d7d7d7;
+    --theme-bg-color: #fafafb;
+    --body-font: "Poppins", sans-serif;
+    --nav-font: "Carrois Gothic SC", sans-serif;
+    --body-color: #272d2f;
+    --brand-color: #272d2f;
+    --nav-color: #505d5f;
+    --active-color: #272d2f;
+    --active-light-color: #e1ebfb;
+    --header-bg-color: #ffc529;
+    --search-border-color: #efefef;
+    --border-color: #d8d8d8;
+    --background-image: url("assets/images/background.jpg");
+}
+
+html, body{
+    /* margin: 0px;
+    width: 100%;
+    height: 100%; */
+    overflow-x: hidden;
+    font-family : Arial, Helvetica, sans-serif;
+    background-color: var(--body-bg-color);
+    font-family: var(--body-font);
+    font-size: 15px;
+    color: var(--body-color);
+    width: 100%;
+}
+
+.header{
+    padding: 0 40px ;
+    background-color: var(--header-bg-color);
+    font-size: larger;
+    font-family: var(--nav-font);
+}
+
+.header .navbar-brand{
+    font-size: 40px;
+    margin-right: 100px;
+    color: var(--brand-color);
+}
+
+.header .nav-item{
+    padding: 0 20px;
+}
+
+.header a{
+    color: var(--nav-color);
+}
+
+.header .active a{
+    color: var(--active-color);
+}
+
+.content{
+    height: 667px;
+    background-size: cover;
+    background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1)), var(--background-image);
+}
+
+.text-about{
+    height: 100%;
+    width: 500px;
+    float: right;
+    padding-right: 50px;
+    text-align: right;
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width:768px) {
+    html, body{
+        
+    }
+}
