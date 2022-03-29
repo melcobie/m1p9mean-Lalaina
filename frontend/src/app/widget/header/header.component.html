@@ -1,7 +1,7 @@
 <div class="header">
     <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="#">
-          <span><img src="../assets/images/icone.ico" height="50px"/></span>
+        <a class="navbar-brand" href="/">
+          <span><img src="../assets/images/icone.ico" height="40px"/></span>
           E-Kaly
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,8 +17,8 @@
             </li>
           </ul>
           <div class="form-inline my-2 my-lg-0">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Se connecter</button>
-            <a class="nav-link">Créer un compte</a>    
+            <button class="btn btn-outline-success my-2 my-sm-0" (click)="goLogin()">Se connecter</button>
+            <a class="nav-link" href="/signup">Créer un compte</a>    
           </div>
         </div>      
     </nav>

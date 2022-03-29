@@ -1,0 +1,39 @@
+.main{
+    height: 600px;
+    background-image: var(--background-image);
+}
+
+.card{
+    height: 100%;
+    width: 500px;
+    float: right;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.card-title{
+    text-align: center;
+    font-size: 40px;
+}
+
+.wrapper{
+    margin-top : 20px;
+}
+
+.btn{
+    margin-top: 40px;
+    border: solid var(--btn-color);
+    color: var(--btn-color);
+    font-family: var(--nav-font);
+}
+
+@media only screen and (max-width: 768px){
+    .main{
+        background: none;
+        min-height: 100vh;
+    }
+    .card{
+        width: 100%;
+    }
+}

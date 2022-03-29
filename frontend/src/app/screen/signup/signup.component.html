@@ -1,0 +1,30 @@
+<div class="main">
+    <div class="card" >
+        <div class="card-title">
+            <span>
+                <img src="../assets/images/icone.ico" height="40px"/>
+                E-Kaly
+            </span>  
+        </div>
+        <div class="card-body form-group">
+            <div class="wrapper">
+                <label>Nom d'utilisateur</label>
+                <input type='text'name="name" [(ngModel)]='username' class='form-control' />
+            </div>
+            <div class="wrapper">
+                <label>Mot de passe</label>
+                <input type='password'name="password" [(ngModel)]='password' class='form-control' />
+            </div> 
+            <div class="wrapper">
+                <label>Vérifiez votre mot de passe</label>
+                <input type='password'name="password2" [(ngModel)]='password2' class='form-control' />
+            </div> 
+            <div  class="error">
+                {{this.error}}
+            </div>
+            <div class="btn connect form-control"(click)="connect()">
+                Créer un compte Client
+            </div>
+        </div>         
+    </div>
+</div>
