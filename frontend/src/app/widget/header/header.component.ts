@@ -13,8 +13,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goLogin(): void{
-    this.route.navigateByUrl("/signin");
+  goToUrl(url: string): void{
+    this.route.navigateByUrl(url);
   }
 
 }

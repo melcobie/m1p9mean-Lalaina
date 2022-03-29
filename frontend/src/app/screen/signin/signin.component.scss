@@ -28,6 +28,11 @@
     font-family: var(--nav-font);
 }
 
+.btn:hover{
+    background-color: var(--btn-color);
+    color: var(--body-color);
+}
+
 @media only screen and (max-width: 768px){
     .main{
         background: none;
