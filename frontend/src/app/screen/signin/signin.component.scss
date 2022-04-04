@@ -1,5 +1,5 @@
 .main{
-    height: 600px;
+    height: 650px;
     background-image: var(--background-image);
 }
 
@@ -22,6 +22,8 @@
 }
 
 .btn{
+    font-size: 23px;
+    height: 50px;
     margin-top: 40px;
     border: solid var(--btn-color);
     color: var(--btn-color);
@@ -33,6 +35,11 @@
     color: var(--body-color);
 }
 
+.btn.disabled{
+    border-color: var(--btn-disabled);
+    background: none;
+}
+
 @media only screen and (max-width: 768px){
     .main{
         background: none;
@@ -41,4 +48,11 @@
     .card{
         width: 100%;
     }
+}
+
+.error{
+    margin-top: 10px;
+    color: var(--error-color);
+    font-style: italic;
+    font-size: smaller;
 }

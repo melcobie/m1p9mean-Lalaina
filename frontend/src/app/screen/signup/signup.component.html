@@ -9,21 +9,28 @@
         <div class="card-body form-group">
             <div class="wrapper">
                 <label>Nom d'utilisateur</label>
-                <input type='text'name="name" [(ngModel)]='username' class='form-control' />
+                <input type='text'name="name" [(ngModel)]='username' class='form-control' [required]="true"/>
+            </div>
+            <div class="wrapper">
+                <label>Email</label>
+                <input type='email'name="email" [(ngModel)]='email' class='form-control' [required]="true"/>
             </div>
             <div class="wrapper">
                 <label>Mot de passe</label>
-                <input type='password'name="password" [(ngModel)]='password' class='form-control' />
+                <input type='password'name="password" [(ngModel)]='password' class='form-control' [required]="true"/>
             </div> 
             <div class="wrapper">
                 <label>Vérifiez votre mot de passe</label>
-                <input type='password'name="password2" [(ngModel)]='password2' class='form-control' />
+                <input type='password'name="password2" [(ngModel)]='password2' class='form-control' [required]="true"/>
             </div> 
             <div  class="error">
                 {{this.error}}
             </div>
-            <div class="btn connect form-control"(click)="connect()">
+            <div *ngIf="!loader" class="btn connect form-control"(click)="connect()">
                 Créer un compte Client
+            </div>
+            <div *ngIf="loader" class="btn form-control disabled">
+                <Loader></Loader>
             </div>
         </div>         
     </div>

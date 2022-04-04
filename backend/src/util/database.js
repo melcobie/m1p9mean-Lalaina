@@ -1,17 +1,15 @@
-const mongoClient = require("mongodb").MongoClient;
+require("dotenv").config();
 
-const mongoDbUrl = "mongodb://localhost:27017";
+const mongoose = require("mongoose");
+
+const mongoDbUrl = process.env.DATABASE_URL;
 let mongodb;
 
-function connect(callback){
-    mongoClient.connect(mongoDbUrl, (err, db) => {
-        if(err){
-            console.log(err);
-            return;
-        }
-        mongodb = db.db("ekaly");
-        callback();
-    });
+function connect(){
+    mongoose.connect(mongoDbUrl, { useNewUrlParser : true});
+    mongodb = mongoose.connection;
+    mongodb.on('error', (err) => console.log(err));
+    mongodb.once("open", ()=> console.log("Database opened"));
 }
 function get(){
     return mongodb;
