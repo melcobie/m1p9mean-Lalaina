@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AuthenticationService } from 'src/app/helper/authentication-service';
-import { type } from 'src/app/reducer/action';
-import { EKalyStore } from 'src/app/reducer/type';
-
-interface AppStore{
-  user : EKalyStore
-}
+import { AppState } from 'src/app/reducer';
+import { type } from 'src/app/reducer/user-reducer/action';
+import { EKalyStore } from 'src/app/reducer/user-reducer/type';
 
 @Component({
   selector: 'app-signin',
@@ -20,14 +18,16 @@ export class SigninComponent implements OnInit {
   loader: boolean = false;
 
   constructor(private service: AuthenticationService,
-    private store : Store<AppStore>
+    private store : Store<AppState>,
+    private router : Router,
   ) { }
 
   ngOnInit(): void {
   }
 
   cb(result: any){
-    this.store.dispatch({type:type.SIGNIN, payload:result})
+    this.store.dispatch({type:type.SIGNIN, payload:result});
+    this.router.navigateByUrl("/");
   }
 
   cbError(err: any){
@@ -38,15 +38,14 @@ export class SigninComponent implements OnInit {
   async connect() {
     this.loader = true;
     const data = {username: this.username, password: this.password};
-    this.store.dispatch({type:type.SIGNIN, payload: data})
-    this.loader = false;
-    // this.service.signin(data, (result:any)=>{
-    //   this.cb(result);
-    //   this.loader = false;
-    // }, (err:any)=>{
-    //   this.error = err.error.message;
-    //   this.loader = false;
-    // });
+    // this.store.dispatch({type:type.SIGNIN, payload: data})
+    this.service.signin(data, (result:any)=>{
+      this.cb(result);
+      this.loader = false;
+    }, (err:any)=>{
+      this.error = err.error.message;
+      this.loader = false;
+    });
   }
 
 }

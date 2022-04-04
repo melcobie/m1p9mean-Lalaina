@@ -1,5 +1,5 @@
 import { Action } from "@ngrx/store";
-import { type } from "./action";
+import { type } from "./user-reducer/action";
 
 
 export function simplereducer(state: string = "Hello World", action: Action){

@@ -7,5 +7,5 @@ export interface EKalyStore{
             name: string,
         }
     }|null,
-    token : string,
+    accessToken : string,
 }

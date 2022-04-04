@@ -37,7 +37,12 @@ export class AuthenticationService{
         )
     }
 
-    // logout = async ()=>{
-    //     this.service.deleteData(url.logout, this)
-    // }
+    logout = async (token: string, cb: any)=>{
+        this.service.deleteData(url.logout, token)
+            .subscribe(
+                (data: any)=>{
+                    cb(data);
+                }
+            )
+    }
 }

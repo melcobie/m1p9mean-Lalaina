@@ -8,20 +8,21 @@
             <img src="https://img.icons8.com/fluency/48/000000/menu-rounded.png"/>
         </button>  
         <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo01">
+          
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link active" href="#">Nos produits</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Votre Commande</a>
-            </li>
+            <HeaderClient *ngIf="type === userType.CLIENT" goToUrl="goToUrl"></HeaderClient>
+            <HeaderAdmin *ngIf="type === userType.ADMIN" goToUrl="goToUrl"></HeaderAdmin>
+            <HeaderRestaurant *ngIf="type === userType.RESTAURANT" goToUrl="goToUrl"></HeaderRestaurant>
+            <HeaderLivreur *ngIf="type === userType.LIVREUR" goToUrl="goToUrl"></HeaderLivreur>
           </ul>
           <div *ngIf="user| async as u">
-            <div *ngIf="u" class="form-inline my-2 my-lg-0">
-              <button class="btn btn-outline-success my-2 my-sm-0" (click)="goToUrl('/signin')">Se connecter</button>
+            <div *ngIf="u.accessToken" class="form-inline my-2 my-lg-0">
+              <div class="user-info">
+                <img src="../../../assets/images/icons8-user-48.png" height="22"/>{{ u?.user?.username }}
+              </div>
               <a class="nav-link" (click)="logout()">Log Out</a>    
             </div>
-            <div *ngIf="!u" class="form-inline my-2 my-lg-0">
+            <div *ngIf="!u.accessToken" class="form-inline my-2 my-lg-0">
               <button class="btn btn-outline-success my-2 my-sm-0" (click)="goToUrl('/signin')">Se connecter</button>
               <a class="nav-link" (click)="goToUrl('/signup')">Créer un compte</a>    
             </div>

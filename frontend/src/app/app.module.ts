@@ -11,9 +11,12 @@ import { HeaderComponent } from './widget/header/header.component';
 import { FooterComponent } from './widget/footer/footer.component';
 import { SigninComponent } from './screen/signin/signin.component';
 import { SignupComponent } from './screen/signup/signup.component';
-import { userReducer } from './reducer/reducer';
 import { LoaderComponent } from './widget/loader/loader.component';
-import { simplereducer } from './reducer/simple-reducer';
+import { reducers } from './reducer';
+import { HeaderClientComponent } from './widget/header/header-client/header-client.component';
+import { HeaderAdminComponent } from './widget/header/header-admin/header-admin.component';
+import { HeaderRestaurantComponent } from './widget/header/header-restaurant/header-restaurant.component';
+import { HeaderLivreurComponent } from './widget/header/header-livreur/header-livreur.component';
 
 @NgModule({
   declarations: [
@@ -23,17 +26,18 @@ import { simplereducer } from './reducer/simple-reducer';
     FooterComponent,
     SigninComponent,
     SignupComponent,
-    LoaderComponent
+    LoaderComponent,
+    HeaderClientComponent,
+    HeaderAdminComponent,
+    HeaderRestaurantComponent,
+    HeaderLivreurComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    StoreModule.forRoot({
-      message : simplereducer,
-      user : userReducer,
-    }),
+    StoreModule.forRoot(reducers),
   ],
   providers: [],
   bootstrap: [AppComponent]

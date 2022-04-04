@@ -12,6 +12,7 @@ export class SigninAction implements Action{
 
 export class SignoutAction implements Action{
     readonly type = type.SIGNOUT;
+    constructor(public payload: any){}
 }
 
 export type All = 
