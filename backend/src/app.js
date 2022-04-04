@@ -15,10 +15,11 @@ app.use(cors({
 
 mongoDb.connect();
 
+app.use(express.static("public", {etag: false}));
 app.use(express.json());
 
-app.use("/", authenticationRouter);
-app.use("/user", userRouter);
+app.use("/api/", authenticationRouter);
+app.use("/api/user", userRouter);
 
 app.listen(3000, ()=>{
     console.log("Server run on port 3000");

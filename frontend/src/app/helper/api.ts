@@ -5,7 +5,7 @@ import { HttpClient, HttpParams } from "@angular/common/http";
     providedIn : "root"
 })
 export class Service{
-    baseUrl = "http://localhost:3000";
+    baseUrl = "http://localhost:3000/api";
     headers = {
         "Content-Type": "application/json",
         Accept: "application/json",
