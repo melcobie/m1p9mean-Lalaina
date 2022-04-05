@@ -1,0 +1,60 @@
+<div class="content">
+    <h1>Gérer les restaurants</h1>
+    <div class="body-container">     
+        <div class="top">
+            <div class="form-inline mx-sm-3 mb-2">
+                <input type="text" class="form-control" name="search" [(ngModel)]="recherche">
+                <button class="btn btn-light" (click)="rechercher()">Rechercher</button>
+                <button class="btn btn-light" (click)="annuler()">Annuler</button>
+            </div>
+            <div class="right">
+                <button class="btn btn-success mb-2 right" (click)="creation=true">Créer un nouveau restaurant</button>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th colspan="2">Location</th>
+                </tr>
+            </thead>
+            <tr *ngIf="creation">
+                <td class="form-inline">
+                    <input type="text" class="form-control" name="name" placeholder="Name"[(ngModel)]="new.username"><span>  </span>
+                    <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="new.password">
+                </td>
+                <td>
+                    <input type="email" class="form-control" name="email" placeholder="Email" [(ngModel)]="new.email">
+                </td>
+                <td>
+                    <input type="text" class="form-control" name="location" placeholder="Location" [(ngModel)]="new.location">
+                </td>
+                <td>
+                    <button class="btn btn-success" (click)="create()">Créer</button>
+                    <img src="../../../assets/images/icons8-remove-48.png" width="20" (click)="reset()"/>
+                    <p class="error">{{ error }}</p>
+                </td>
+            </tr>
+            <tbody *ngIf="!loader && !noData" >
+                <tr *ngFor="let restaurant of restaurants">
+                    <td>{{ restaurant.username }}</td>
+                    <td>{{ restaurant.email }}</td>
+                    <td>{{ restaurant.location }}</td>
+                    <td>
+                        <img src="../../../assets/images/icons8-remove-48.png" width="20" (click)="delete(restaurant._id)"/>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody *ngIf="!loader && noData">
+                <tr class="loader">
+                    <td colspan="4">Pas de données</td>
+                </tr>
+            </tbody>
+            <tr *ngIf="loader" class="loader">
+                <td colspan="4"><Loader [height]="100"></Loader></td>
+            </tr>
+        </table>
+        
+    </div> 
+</div>

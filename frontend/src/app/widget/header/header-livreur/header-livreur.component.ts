@@ -6,9 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./header-livreur.component.scss']
 })
 export class HeaderLivreurComponent implements OnInit {
-  @Input() goToUrl: any;
-
-  constructor() { this.goToUrl = ()=>{}}
+  constructor() {}
 
   ngOnInit(): void {
   }

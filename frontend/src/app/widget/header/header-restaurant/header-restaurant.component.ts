@@ -6,9 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./header-restaurant.component.scss']
 })
 export class HeaderRestaurantComponent implements OnInit {
-  @Input() goToUrl: any;
-
-  constructor() { this.goToUrl = ()=>{}}
+  constructor() { }
 
   ngOnInit(): void {
   }

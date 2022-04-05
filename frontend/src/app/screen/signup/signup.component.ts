@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { AuthenticationService } from 'src/app/helper/authentication-service';
+import { AppState } from 'src/app/reducer';
+import { type } from 'src/app/reducer/user-reducer/action';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +18,10 @@ export class SignupComponent implements OnInit {
   error: string = "";
   loader: boolean = false;
   
-  constructor(private service: AuthenticationService) { }
+  constructor(private service: AuthenticationService,
+    private store : Store<AppState>,
+    private router : Router, 
+  ) { }
 
   ngOnInit(): void {
   }
@@ -24,7 +31,9 @@ export class SignupComponent implements OnInit {
   }
 
   cb(result:any): any {
-    console.log(result);
+    localStorage.setItem("token", result.accessToken);
+    this.store.dispatch({type:type.SIGNIN, payload:result});
+    this.router.navigateByUrl("/");
   }
 
   async connect(){

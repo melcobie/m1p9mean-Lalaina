@@ -10,10 +10,10 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo01">
           
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <HeaderClient *ngIf="type === userType.CLIENT" goToUrl="goToUrl"></HeaderClient>
-            <HeaderAdmin *ngIf="type === userType.ADMIN" goToUrl="goToUrl"></HeaderAdmin>
-            <HeaderRestaurant *ngIf="type === userType.RESTAURANT" goToUrl="goToUrl"></HeaderRestaurant>
-            <HeaderLivreur *ngIf="type === userType.LIVREUR" goToUrl="goToUrl"></HeaderLivreur>
+            <HeaderClient *ngIf="type === userType.CLIENT"></HeaderClient>
+            <HeaderAdmin *ngIf="type === userType.ADMIN"></HeaderAdmin>
+            <HeaderRestaurant *ngIf="type === userType.RESTAURANT"></HeaderRestaurant>
+            <HeaderLivreur *ngIf="type === userType.LIVREUR"></HeaderLivreur>
           </ul>
           <div *ngIf="user| async as u">
             <div *ngIf="u.accessToken" class="form-inline my-2 my-lg-0">

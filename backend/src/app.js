@@ -1,9 +1,12 @@
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
 const mongoDb = require("./util/database");
+const path = require("path");
 
 const userRouter = require("./routes/user-route");
 const authenticationRouter = require("./routes/authentication");
+const adminRouter = require("./routes/admin-route");
 
 const app = new express();
 app.use(cors({
@@ -15,13 +18,18 @@ app.use(cors({
 
 mongoDb.connect();
 
-app.use(express.static("public", {etag: false}));
+app.use(express.static(path.resolve(process.cwd(), 'dist/frontend')))
 app.use(express.json());
 
-app.use("/api/", authenticationRouter);
+app.use("/api", authenticationRouter);
+app.use("/api", adminRouter);
 app.use("/api/user", userRouter);
 
-app.listen(3000, ()=>{
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(process.cwd(), 'dist/frontend/index.html'))
+})
+
+app.listen(process.env.PORT ||3000, ()=>{
     console.log("Server run on port 3000");
 })
 

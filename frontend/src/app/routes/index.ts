@@ -2,6 +2,7 @@ import { Routes } from "@angular/router";
 import { SigninComponent } from "../screen/signin/signin.component";
 import { SignupComponent } from "../screen/signup/signup.component";
 import { WelcomeComponent } from "../screen/welcome/welcome.component";
+import adminRoutes from "./admin-routes";
 
 const routes : Routes = [
     {
@@ -15,6 +16,11 @@ const routes : Routes = [
     {
         path: "signup",
         component: SignupComponent,
+    },
+    ...adminRoutes,
+    {
+        path: "*",
+        redirectTo: "",
     }
 ];
 

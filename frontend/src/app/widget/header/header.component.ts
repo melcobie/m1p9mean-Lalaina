@@ -48,6 +48,7 @@ export class HeaderComponent implements OnInit{
   async logout(){
       this.service.logout(this.accessToken, (data:any)=>{});
       this.store.dispatch({type: type.SIGNOUT, payload:""})
+      localStorage.clear();
       this.goToUrl("/");  
   }
 

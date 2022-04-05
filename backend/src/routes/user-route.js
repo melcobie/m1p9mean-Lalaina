@@ -1,20 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Users = require("../models/users");
+const { getUser } = require("../service/user-service");
 
-async function getUser(req, res, next) {
-    let user;
-    try{
-        user = await Users.findById(req.params.id);
-        if(user == null){
-            return res.status(401).json({message : "Could not find user"});
-        }
-    }catch(err){
-        return res.status(500).json({message : err.message});
-    }
-    res.user = user;
-    next();
-}
 
 router.get("/", async (req, res)=>{
     try{

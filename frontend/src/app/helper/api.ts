@@ -30,13 +30,11 @@ export class Service{
     };
 
     getWithoutToken = (url: string, data?: any) => {
-        let httpParams = new HttpParams()
-        Object.keys(data)?.map((key)=>httpParams.set(key, data[key]));
         const result = this.http.get(
             this.baseUrl + url,
             { 
                 headers : this.headers,
-                params : httpParams,
+                params : data,
             },
         );
         return result;
@@ -75,11 +73,12 @@ export class Service{
         return result;
     }
 
-    deleteData = (url:string, token:string) => {
+    deleteData = (url:string, token:string, data:any={}) => {
         const result = this.http.delete(
             this.baseUrl + url,
             {
-                headers: this.headerWithToken(token)
+                headers: this.headerWithToken(token),
+                body: data,
             }
         );
         return result;

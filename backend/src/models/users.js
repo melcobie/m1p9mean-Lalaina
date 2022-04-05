@@ -26,6 +26,9 @@ const usersSchema = mongoose.Schema({
             },
         },
         required: true,
+    },
+    location: {
+        type: String,
     }
 },{
     collation: { locale: "en", strength:2}

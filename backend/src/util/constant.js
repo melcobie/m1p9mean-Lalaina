@@ -17,4 +17,6 @@ const type = {
     }
 }
 
-module.exports = { type };
+module.exports = { 
+    type 
+};

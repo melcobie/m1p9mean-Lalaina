@@ -17,6 +17,8 @@ import { HeaderClientComponent } from './widget/header/header-client/header-clie
 import { HeaderAdminComponent } from './widget/header/header-admin/header-admin.component';
 import { HeaderRestaurantComponent } from './widget/header/header-restaurant/header-restaurant.component';
 import { HeaderLivreurComponent } from './widget/header/header-livreur/header-livreur.component';
+import { RestaurantsComponent } from './screen/restaurants/restaurants.component';
+import { LivreursComponent } from './screen/livreurs/livreurs.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { HeaderLivreurComponent } from './widget/header/header-livreur/header-li
     HeaderClientComponent,
     HeaderAdminComponent,
     HeaderRestaurantComponent,
-    HeaderLivreurComponent
+    HeaderLivreurComponent,
+    RestaurantsComponent,
+    LivreursComponent
   ],
   imports: [
     BrowserModule,

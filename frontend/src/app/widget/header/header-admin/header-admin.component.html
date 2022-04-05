@@ -1,14 +1,14 @@
-<p>header-admin works!</p><ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-    <li class="nav-item active">
-      <a class="nav-link active" (click)="goToUrl('/signup')">Commandes</a>
-    </li>
+<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
     <li class="nav-item">
-      <a class="nav-link" (click)="goToUrl('/signup')">Restaurants</a>
+      <a [class]="'nav-link '" href="goToUrl('/signup')">Commandes</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" (click)="goToUrl('/signup')">Livreurs</a>
+    <li class="nav-item" [ngClass]="{'active':active.restaurant}">
+      <a class="nav-link" href="/restaurants">Restaurants</a>
+    </li>
+    <li class="nav-item" [ngClass]="{'active':active.livreur}">
+        <a class="nav-link" href="/livreurs">Livreurs</a>
       </li>
     <li class="nav-item">
-        <a class="nav-link" (click)="goToUrl('/signup')">Bénéfices</a>
+        <a class="nav-link" href="goToUrl('/signup')">Bénéfices</a>
     </li>
 </ul>

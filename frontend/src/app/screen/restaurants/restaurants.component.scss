@@ -1,0 +1,51 @@
+.content{
+    height: 650px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+h1{
+    text-align: center;
+    font-family: var(--nav-font);
+}
+
+.top{ 
+    margin-top: 20px;
+    padding : 0 20px;
+    
+}
+
+.form-inline{
+    flex: 1;
+    float: left;
+}
+
+.loader{
+    margin: 20px auto;
+    text-align: center;
+    font-family: var(--nav-font);
+}
+
+.b{
+    margin-left: 5px;
+}
+
+@media (min-width:768px){
+    .top{
+        display: flex;
+    }
+    .right{
+        float: right;
+    }
+}
+
+
+.table{
+    margin-top: 20px;
+    min-width: 500px;
+    overflow-x: auto;
+}
+
+@media screen and (max-width:768px) {
+   
+}

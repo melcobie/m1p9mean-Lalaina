@@ -8,9 +8,8 @@ import { EKalyStore } from 'src/app/reducer/user-reducer/type';
   styleUrls: ['./header-client.component.scss']
 })
 export class HeaderClientComponent implements OnInit {
-  @Input() goToUrl: any;
 
-  constructor() { this.goToUrl = ()=>{}}
+  constructor() {}
 
   ngOnInit(): void {
   }

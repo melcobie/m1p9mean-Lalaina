@@ -6,7 +6,7 @@ import { INIT } from "@ngrx/store";
 
 export type Action = EKalyAction.All
 
-const initialState : EKalyStore = {
+export const initialState : EKalyStore = {
     user: null,
     accessToken: "",
 }

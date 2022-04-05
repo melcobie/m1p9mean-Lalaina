@@ -26,6 +26,7 @@ export class SigninComponent implements OnInit {
   }
 
   cb(result: any){
+    localStorage.setItem("token", result.accessToken);
     this.store.dispatch({type:type.SIGNIN, payload:result});
     this.router.navigateByUrl("/");
   }
