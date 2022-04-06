@@ -5,12 +5,17 @@ import { HttpClient, HttpParams } from "@angular/common/http";
     providedIn : "root"
 })
 export class Service{
-    baseUrl = "http://localhost:3000/api";
+    baseUrlProd = "";
+    baseUrl = "";
     headers = {
         "Content-Type": "application/json",
         Accept: "application/json",
     }
-    constructor(private http: HttpClient){}
+    constructor(private http: HttpClient){
+        // //prod
+        // this.baseUrlProd = "https://m1p9mean-lalaina.herokuapp.com/api"; 
+        this.baseUrl = this.baseUrlProd !== ""? this.baseUrlProd : "http://localhost:3000/api";
+    }
 
     headerWithToken = (token:string) => {
         return {

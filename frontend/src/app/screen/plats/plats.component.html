@@ -1,0 +1,61 @@
+<div class="content">
+    <h1>Gérer les plats</h1>
+    <div class="body-container">     
+        <div class="top">
+            <div class="form-inline mx-sm-3 mb-2">
+                <input type="text" class="form-control" name="search" [(ngModel)]="recherche">
+                <button class="btn btn-light" (click)="rechercher()">Rechercher</button>
+                <button class="btn btn-light" (click)="annuler()">Annuler</button>
+            </div>
+            <div class="right">
+                <button class="btn btn-success mb-2" (click)="creation=true">Créer un nouveau plat</button>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Catégorie</th>
+                    <th colspan="2">Prix</th>
+                </tr>
+            </thead>
+            <tr *ngIf="creation">
+                <td class="form-inline">
+                    <input type="text" class="form-control" name="name" placeholder="Name"[(ngModel)]="new.name"><span>  </span>
+                </td>
+                <td>
+                    <input type="string" class="form-control" name="type" placeholder="Catégorie" [(ngModel)]="new.type">
+                </td>
+                <td>
+                    <input type="number" class="form-control" name="price" placeholder="Prix" [(ngModel)]="new.price">
+                </td>
+                <td>
+                    <button class="btn btn-success" (click)="create()">Créer</button>
+                    <img src="../../../assets/images/icons8-remove-48.png" width="20" (click)="reset()"/>
+                    <p class="error">{{ error }}</p>
+                </td>
+            </tr>
+            <tbody *ngIf="!loader && !noData" >
+                <tr *ngFor="let plat of plats">
+                    <td>{{ plat.name }}</td>
+                    <td>{{ plat.type }}</td>
+                    <td>{{ plat.price }} Ar</td>                  
+                    <td>
+                        <img src="../../../assets/images/icons8-modify-24.png" width="20" (click)="update(plat._id)"/>
+                        <img src="../../../assets/images/icons8-remove-48.png" width="20" (click)="delete(plat._id)"/>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody *ngIf="!loader && noData">
+                <tr class="loader">
+                    <td colspan="4">Pas de données</td>
+                </tr>
+            </tbody>
+            <tr *ngIf="loader" class="loader">
+                <td colspan="4"><Loader [height]="100"></Loader></td>
+            </tr>
+        </table>
+        
+    </div> 
+</div>
+

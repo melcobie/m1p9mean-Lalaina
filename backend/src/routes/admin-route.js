@@ -3,6 +3,8 @@ const { type } = require("../util/constant");
 const router = express.Router();
 const { getUsersByType, newUser, getUserByToken, getUsersByData, getUserByUsername } = require("../service/user-service");
 const users = require("../models/users");
+const plat = require("../models/plat");
+const { batchDeletePlat } = require("../service/plat-service");
 
 function isAdmin(req, res, next){
     if(req.user.type.identifier !== type.ROLE_ADMIN.identifier) return res.status(403).send({message: "Vous n'en avez pas l'autorisation"});
@@ -69,10 +71,15 @@ router.post("/livreur", getUserByToken, isAdmin, getUserByUsername, async (req, 
 
 //Delete
 router.delete("/user", getUserByToken, isAdmin, async (req, res)=>{
-    try{
+    const session = await users.startSession();
+    session.startTransaction();
+    try{     
         await users.findByIdAndDelete(req.body.id);
+        await batchDeletePlat({ 'restaurant._id':req.body.id});
+        session.endSession();
         res.sendStatus(204);
     }catch(err){
+        session.abortTransaction();
         res.status(500).json({ message : err.message });
     }
 })

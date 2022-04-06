@@ -3,6 +3,7 @@ import { SigninComponent } from "../screen/signin/signin.component";
 import { SignupComponent } from "../screen/signup/signup.component";
 import { WelcomeComponent } from "../screen/welcome/welcome.component";
 import adminRoutes from "./admin-routes";
+import restaurantRoutes from "./restaurant-routes";
 
 const routes : Routes = [
     {
@@ -18,6 +19,7 @@ const routes : Routes = [
         component: SignupComponent,
     },
     ...adminRoutes,
+    ...restaurantRoutes,
     {
         path: "*",
         redirectTo: "",

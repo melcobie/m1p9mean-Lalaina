@@ -7,6 +7,7 @@ const path = require("path");
 const userRouter = require("./routes/user-route");
 const authenticationRouter = require("./routes/authentication");
 const adminRouter = require("./routes/admin-route");
+const platRouter = require("./routes/plat-route");
 
 const app = new express();
 app.use(cors({
@@ -24,6 +25,7 @@ app.use(express.json());
 app.use("/api", authenticationRouter);
 app.use("/api", adminRouter);
 app.use("/api/user", userRouter);
+app.use("/api/plat", platRouter);
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(process.cwd(), 'dist/frontend/index.html'))

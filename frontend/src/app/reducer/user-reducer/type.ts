@@ -1,5 +1,6 @@
 export interface EKalyStore{
     user : {
+        _id : string,
         username : string,
         email : string,
         type: {

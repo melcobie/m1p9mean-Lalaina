@@ -9,5 +9,10 @@ export const url = {
     livreurs: {
         get: "/livreur",
         delete: "/user",
+    },
+    plats: {
+        get: "/plat",
+        new: "/plat/new",
+        updateOrDelete: "/plat/",
     }
 }

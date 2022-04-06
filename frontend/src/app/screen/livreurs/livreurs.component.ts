@@ -79,7 +79,7 @@ export class LivreursComponent implements OnInit {
   }
 
   create(){
-    if(this.new.username === "" || this.new.password === "" || this.new.email === "" || this.new.location === "")
+    if(this.new.username === "" || this.new.password === "" || this.new.email === "")
       this.error = "Complétez les champs";
     else{
       this.loader = true;
