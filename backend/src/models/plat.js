@@ -9,7 +9,14 @@ const platSchema = mongoose.Schema({
         type: Number,
         required: true,
     },
+    costPrice: {
+        type: Number,
+        required: true,
+    },
     type: {
+        type: String,
+    },
+    image: {
         type: String,
     },
     restaurant: {
@@ -25,4 +32,7 @@ const platSchema = mongoose.Schema({
     collation: { locale: "en", strength:2}
 });
 
-module.exports = mongoose.model("plat", platSchema);
+module.exports = {
+    plat : mongoose.model("plat", platSchema),
+    platSchema,
+}

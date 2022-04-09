@@ -14,17 +14,37 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>Image</th>
                     <th>Nom</th>
                     <th>Catégorie</th>
-                    <th colspan="2">Prix</th>
+                    <th>Prix de revient</th>
+                    <th colspan="2">Prix de vente</th>
                 </tr>
             </thead>
             <tr *ngIf="creation">
-                <td class="form-inline">
-                    <input type="text" class="form-control" name="name" placeholder="Name"[(ngModel)]="new.name"><span>  </span>
+                <td>
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                          <input 
+                            type="file" 
+                            class="custom-file-input" 
+                            id="inputGroupFile02"
+                            name="image"
+                            (change)="onFileChange($event)"
+                            accept="image/png, image/jpeg"
+                          >
+                          <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">{{ new.image? new.image.name : "Choississez une image"}}</label>
+                        </div>
+                    </div>
+                    
                 </td>
                 <td>
+                    <input type="text" class="form-control" name="name" placeholder="Name"[(ngModel)]="new.name"><span>  </span>
+                <td>
                     <input type="string" class="form-control" name="type" placeholder="Catégorie" [(ngModel)]="new.type">
+                </td>
+                <td>
+                    <input type="number" class="form-control" name="costPrice" placeholder="Prix de revient" [(ngModel)]="new.costPrice">
                 </td>
                 <td>
                     <input type="number" class="form-control" name="price" placeholder="Prix" [(ngModel)]="new.price">
@@ -37,11 +57,17 @@
             </tr>
             <tbody *ngIf="!loader && !noData" >
                 <tr *ngFor="let plat of plats">
+                    <td><img
+                        width="30"
+                        height="30"
+                        [src]="fileUrl(plat.image)"    
+                    ></td>
                     <td>{{ plat.name }}</td>
                     <td>{{ plat.type }}</td>
+                    <td>{{ plat.costPrice }} Ar</td>  
                     <td>{{ plat.price }} Ar</td>                  
                     <td>
-                        <img src="../../../assets/images/icons8-modify-24.png" width="20" (click)="update(plat._id)"/>
+                        <img src="../../../assets/images/icons8-modify-24.png" width="20"/>
                         <img src="../../../assets/images/icons8-remove-48.png" width="20" (click)="delete(plat._id)"/>
                     </td>
                 </tr>

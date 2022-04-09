@@ -1,1 +1,6 @@
 @import url("../restaurants//restaurants.component.scss");
+
+.custom-file-label{
+    text-overflow: "clip";
+    overflow : hidden;
+}

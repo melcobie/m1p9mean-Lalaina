@@ -17,7 +17,7 @@ export class PlatService{
     }
 
     createPlat = (data: any, token: string)=>{
-        return this.service.postData(
+        return this.service.postFormData(
             url.plats.new,
             token,
             data,

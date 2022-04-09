@@ -1,4 +1,4 @@
-const plat = require("../models/plat");
+const { plat } = require("../models/plat");
 
 async function getPlats(data){
     let plats;
@@ -22,10 +22,17 @@ async function getPlats(data){
     }
 }
 
-async function newPlats(data){ 
+async function newPlats(data, image){ 
     try{
-        if(typeof data.price !== "number") throw new Error("Le prix doit etre un nombre");
-        let newPlat = new plat(data);
+        let plats = {
+            name : data.name,
+            price: parseInt(data.price),
+            costPrice: parseInt(data.costPrice),
+            type: data.type,
+            restaurant: JSON.parse(data.restaurant),
+            image: image.originalname,
+        }
+        let newPlat = new plat(plats);
         newPlat = await newPlat.save();
         return newPlat;
     }catch(err){

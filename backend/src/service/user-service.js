@@ -42,14 +42,14 @@ async function getUserByUsername(req, res, next) {
 async function getUserByToken(req, res, next){
     const authToken = req.headers['authorization'];
     const token = authToken && authToken.split(" ")[1];
-    if(token == null) res.sendStatus(401);
+    if(token == null) return res.sendStatus(401);
     try{
         const accessToken = await tokens.find({token});
         if(accessToken.length === 0) return res.sendStatus(403);
         else{
-            jwt.verify(token, process.env.SECRET_TOKEN, (err, user)=>{
+            jwt.verify(token, process.env.SECRET_TOKEN, async (err, user)=>{
                 if(err) return res.sendStatus(403);
-                req.user = user;
+                req.user = await users.findOne({ email: user.username });
                 next();
             })
         } 

@@ -1,3 +1,5 @@
+export const baseUrl = "http://localhost:3000/";
+
 export const url = {
     signin: "/signin",
     signup: "/signup",

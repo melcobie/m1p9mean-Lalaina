@@ -2,7 +2,23 @@ const express = require("express");
 const { getPlats, newPlats, updatePlat, deletePlat } = require("../service/plat-service");
 const { getUserByToken } = require("../service/user-service");
 const { type } = require("../util/constant");
+const multer = require("multer");
 const router = express.Router();
+
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './dist/frontend/uploads/')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname)
+    }
+})
+
+const upload = multer({ 
+    dest: "./dist/frontend/uploads/",
+    storage 
+})
 
 router.post("/", async (req, res) => {
     try{
@@ -13,9 +29,12 @@ router.post("/", async (req, res) => {
     }
 })
 
-router.post('/new', getUserByToken, isRestaurant, async (req, res)=>{
+router.post('/new', upload.any(), async (req, res)=>{
     try{
-        const newPlat = await newPlats(req.body);
+        if(!req.files){
+            throw new Error("Entrez une image")
+        }
+        const newPlat = await newPlats(req.body, req.files[0]);
         res.status(201).send(newPlat);
     }catch(err){
         res.status(500).json({ message : err.message });

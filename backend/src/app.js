@@ -8,6 +8,8 @@ const userRouter = require("./routes/user-route");
 const authenticationRouter = require("./routes/authentication");
 const adminRouter = require("./routes/admin-route");
 const platRouter = require("./routes/plat-route");
+const commandeRouter = require("./routes/commande-route");
+const beneficeRouter = require("./routes/benefice-route");
 
 const app = new express();
 app.use(cors({
@@ -26,6 +28,8 @@ app.use("/api", authenticationRouter);
 app.use("/api", adminRouter);
 app.use("/api/user", userRouter);
 app.use("/api/plat", platRouter);
+app.use("/api/commande", commandeRouter);
+app.use("/api/benefice", beneficeRouter);
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(process.cwd(), 'dist/frontend/index.html'))

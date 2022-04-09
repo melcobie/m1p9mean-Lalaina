@@ -54,6 +54,25 @@ export class Service{
         return result;
     };
 
+    postFormData = (url: string, token: string, data: any) => {
+        const formData = new FormData();
+        Object.keys(data)?.map((key)=>{
+            formData.append(key, data[key])
+        })
+        const result = this.http.post(
+            this.baseUrl + url,
+            formData,
+            {
+                headers: {
+                    
+                    Accept: "application/json",
+                    "Authorization": "Bearer "+ token,
+                },     
+            }
+        );
+        return result;
+    }
+
     getData = (url: string, token:string, data?: any) => {
         let httpParams = new HttpParams()
         Object.keys(data)?.map((key)=>httpParams.set(key, data[key]));
