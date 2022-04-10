@@ -74,13 +74,11 @@ export class Service{
     }
 
     getData = (url: string, token:string, data?: any) => {
-        let httpParams = new HttpParams()
-        Object.keys(data)?.map((key)=>httpParams.set(key, data[key]));
         const result = this.http.get(
             this.baseUrl + url,
             { 
                 headers : this.headerWithToken(token),
-                params : httpParams,
+                params : data,
             },
         );
         return result;

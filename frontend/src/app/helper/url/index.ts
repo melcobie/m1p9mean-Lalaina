@@ -18,6 +18,8 @@ export const url = {
         updateOrDelete: "/plat/",
     },
     commande: {
-        new: "/commande",
+        new: "/commande/",
+        get: "/commande/filter",
+        deliver: "/commande/deliver/",
     }
 }

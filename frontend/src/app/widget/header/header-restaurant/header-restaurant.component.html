@@ -1,6 +1,6 @@
 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-    <li class="nav-item">
-      <a class="nav-link active" href="">Commandes</a>
+    <li class="nav-item" [ngClass]="{'active': active.commandes}">
+      <a class="nav-link" href="/restaurant/commande">Commandes</a>
     </li>
     <li class="nav-item" [ngClass]="{'active': active.plats}">
       <a class="nav-link" href="/plats">Plats</a>

@@ -94,5 +94,48 @@ export class CommandeService{
     reset = () => {
         this.store.dispatch({type: type.DELETE, payload:{}})
     }
+
+    getCommandes = (data: any, token: string)=> {
+        return this.service.postData(
+            url.commande.get, 
+            token,
+            data,
+        );
+    }
+
+    getCommandesRestaurant = (idRestaurant: string, etatLivraison: boolean, token: string) => {
+        return this.service.getData(
+            url.commande.new,
+            token,
+            { idRestaurant, etatLivraison }
+        );
+    }
+
+    getCommandesNotDelivered = (token: string) => {
+        return this.getCommandes({
+            "etatLivraison.delivered": false
+        }, token);
+    }
+
+    getCommandesDelivered = (token: string) => {
+        return this.getCommandes({
+            "etatLivraison.delivered": true
+        }, token);
+    }
+
+    getCommandeById = (id: string, token: string) => {
+        return this.service.getData(
+            url.commande.new + id,
+            token,
+        )
+    }
+
+    deliver = (id: string, token: string) => {
+        return this.service.postData(
+            url.commande.deliver + id,
+            token,
+            {}
+        );
+    }
 }
 

@@ -11,6 +11,14 @@ async function submitCommande(data){
     }
 }
 
+async function getCommandeById(id){
+    try{
+        return await commande.findById(id);
+    }catch(err){
+        throw err;
+    }
+}
+
 async function getCommandes(filter){
     try{
         return await commande.find(filter).sort({date:1});
@@ -19,8 +27,9 @@ async function getCommandes(filter){
     }
 }
 
-async function getCommandeParRestaurant(restaurant){
-    return await getCommandes({"plats.plat.restaurant._id":restaurant});
+async function getCommandeParRestaurant(restaurant, etatLivraison){
+    let etat = etatLivraison === 'true'? true :false;
+    return await getCommandes({"plats.plat.restaurant._id":restaurant, "etatLivraison.delivered":etat});
 }
 
 async function deliver(idCommande, livreur){
@@ -43,4 +52,5 @@ module.exports = {
     getCommandes,
     getCommandeParRestaurant,
     deliver,
+    getCommandeById,
 }

@@ -1,5 +1,5 @@
 const express = require("express");
-const { submitCommande, getCommandeParRestaurant, getCommandes, deliver } = require("../service/commande-service");
+const { submitCommande, getCommandeParRestaurant, getCommandes, deliver, getCommandeById } = require("../service/commande-service");
 const { getUserByToken } = require("../service/user-service");
 const { type } = require("../util/constant");
 
@@ -27,10 +27,21 @@ router.post("/", getUserByToken, async (req, res)=>{
     }
 })
 
+router.get("/:id", async (req, res)=>{
+    try{
+        let id = req.params.id;
+        const commandes= await getCommandeById(id);
+        res.send(commandes);
+    }catch(err){
+        res.status(500).json({ message : err.message });
+    }
+})
+
 router.get("/", async (req, res)=>{
     try{
         let restaurantId = req.query.idRestaurant;
-        const commandes= await getCommandeParRestaurant(restaurantId);
+        let etatLivraison = req.query.etatLivraison;
+        const commandes= await getCommandeParRestaurant(restaurantId, etatLivraison);
         res.send(commandes);
     }catch(err){
         res.status(500).json({ message : err.message });

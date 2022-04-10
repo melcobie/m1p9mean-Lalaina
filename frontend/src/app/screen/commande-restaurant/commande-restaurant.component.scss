@@ -1,0 +1,13 @@
+@import url("../commandes/commandes.component.scss");
+
+.top{
+    display: flex;
+    text-align: center;
+}
+.span{
+    margin-left: 20px;
+}
+
+.active a{
+    color: var(--darker-header-bg-color);
+}

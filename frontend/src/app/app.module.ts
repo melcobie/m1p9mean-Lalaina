@@ -23,6 +23,9 @@ import { PlatsComponent } from './screen/plats/plats.component';
 import { MenuComponent } from './screen/menu/menu.component';
 import { PlatComponent } from './screen/components/plat/plat.component';
 import { CommandePanierComponent } from './screen/commande-panier/commande-panier.component';
+import { CommandesComponent } from './screen/commandes/commandes.component';
+import { CommandeDetailsComponent } from './screen/commande-details/commande-details.component';
+import { CommandeRestaurantComponent } from './screen/commande-restaurant/commande-restaurant.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { CommandePanierComponent } from './screen/commande-panier/commande-panie
     MenuComponent,
     PlatComponent,
     CommandePanierComponent,
+    CommandesComponent,
+    CommandeDetailsComponent,
+    CommandeRestaurantComponent,
   ],
   imports: [
     BrowserModule,

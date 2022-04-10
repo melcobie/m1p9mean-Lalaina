@@ -1,0 +1,33 @@
+<div class="content">
+    <h1>Voir les commandes</h1>
+    <div class="body-container">     
+        <div class="top">
+            
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Client</th>
+                    <th>Addresse</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="!loader && !noData" >
+                <tr *ngFor="let commande of commandes" (click)="goToDetails(commande._id)">
+                    <td>{{ date(commande.date) }}</td>
+                    <td>{{ commande.client.username }}</td>
+                    <td>{{ commande.addresse }}</td>
+                </tr>
+            </tbody>
+            <tbody *ngIf="!loader && noData">
+                <tr class="loader">
+                    <td colspan="4">Pas de données</td>
+                </tr>
+            </tbody>
+            <tr *ngIf="loader" class="loader">
+                <td colspan="4"><Loader [height]="100"></Loader></td>
+            </tr>
+        </table>
+        
+    </div> 
+</div>

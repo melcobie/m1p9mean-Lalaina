@@ -9,13 +9,15 @@ export class HeaderRestaurantComponent implements OnInit {
   url: string = window.location.href;
   active: any ={
     plats: false,
+    commandes: false,
   }
  constructor() { 
-   
+  this.active.plats = this.url.includes("/plats")? true: false;
+  this.active.commandes = this.url.includes("/commande")? true: false;
  }
 
   ngOnInit(): void {
-    this.active.plats = this.url.includes("/plats")? true: false;
+    
   }
 
 }

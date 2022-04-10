@@ -1,0 +1,38 @@
+<div class="content">
+    <div class="head">
+        <h2>Détails Commande</h2>
+        <div class="button right btn btn-success" (click)="livrer()">
+            Livrer
+        </div>
+    </div>
+    <div class="body body-container">
+        <div class="top">
+            Addresse: {{ commande.addresse }}
+            Total: {{ commande.price }} Ar
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="2">Plat</th>
+                    <th>Quantité</th>
+                    <th>Restaurant</th>
+                    <th>Prix</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let plat of commande.plats">
+                    <td>
+                        <img [src]="fileUrl(plat.plat.image)"
+                            onerror="this.onerror=null;this.src='../../../assets/images/icons8-nourriture-morte-100.png';"
+                            width="50" height="50"
+                        />
+                    </td>
+                    <td>{{ plat.plat.name }}</td>
+                    <td>{{ plat.quantite }}</td>
+                    <td>{{ plat.plat.restaurant.username || plat.plat.restaurant.name }}</td>
+                    <td>{{ plat.price }} Ar</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

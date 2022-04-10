@@ -6,9 +6,15 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./header-livreur.component.scss']
 })
 export class HeaderLivreurComponent implements OnInit {
-  constructor() {}
+  url: string = window.location.href;
+  active: any ={
+    livreur: false,
+  }
+ constructor() { 
+   
+ }
 
   ngOnInit(): void {
+    this.active.livreur = this.url.includes("/commande")? true: false;
   }
-
 }

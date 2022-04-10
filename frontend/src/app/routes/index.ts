@@ -4,6 +4,7 @@ import { SignupComponent } from "../screen/signup/signup.component";
 import { WelcomeComponent } from "../screen/welcome/welcome.component";
 import adminRoutes from "./admin-routes";
 import clientRoutes from "./client-route";
+import livreurRoutes from "./livreur-routes";
 import restaurantRoutes from "./restaurant-routes";
 
 const routes : Routes = [
@@ -22,6 +23,7 @@ const routes : Routes = [
     ...adminRoutes,
     ...restaurantRoutes,
     ...clientRoutes,
+    ...livreurRoutes,
     {
         path: "*",
         redirectTo: "",
