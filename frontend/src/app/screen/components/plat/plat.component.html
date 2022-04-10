@@ -1,0 +1,15 @@
+
+<div class="image">
+    <img [src]="fileUrl(plat.image)"
+    onerror="this.onerror=null;this.src='../../../../assets/images/icons8-nourriture-morte-100.png';"
+    />
+</div>
+<div class="info">
+    <span class="name">{{ plat.name }}</span><br/>
+    <span>{{ plat.type }}</span><br/>
+    <span>{{ plat.price}} ar</span>
+    <div class="order form-inline">
+        <input type="number" value="1" class="form-control" [(ngModel)]="number">
+        <button class="btn btn-success" (click)="commander()">Acheter</button>
+    </div>
+</div>

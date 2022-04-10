@@ -1,0 +1,158 @@
+.content{
+    min-height: 650px;
+    display: flex;
+    padding: 20px 30px;
+}
+
+.part:first-child{
+    margin-right: 30px
+}
+
+.restaurant{
+    width: 25%;
+    background-color: var(--body-bg-color);
+    overflow-y: auto;
+}
+
+.title{
+    height:50px;
+    background-color: var(--dark-bg-color);
+    font-family: var(--nav-font);
+}
+.title h2{
+    vertical-align: middle;
+    display: inline-block;
+    color: var(--theme-bg-color);
+    padding: 5px 10px;
+}
+
+.filter{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    border-bottom: inset var(--dark-bg-color);
+    line-height: 2;
+}
+.filter button{
+    background-color: var(--btn-color);
+    color: var(--theme-bg-color);
+    font-size: 20px;
+    border: none;
+    border-radius: 1em;
+    width: 50%;
+}
+.filter span{
+    color: var(--color-disabled);
+}
+
+.body{
+    display: inline-block;
+    width: 100%;
+}
+.restaurant-item{
+    margin: 5px 10px;
+    background-color: var(--theme-bg-color);
+    border-radius: 1em;
+    padding: 5px 10px;
+}
+.restaurant-item.active{
+    background-color: var(--color-disabled);
+    color: var(--theme-bg-color);
+    border: outset var(--dark-bg-color) 2px;
+}
+
+.plats{
+    width: 75%;
+}
+
+.recherche{
+    padding: 10px 20px;
+    padding-bottom: 20px;
+    border-bottom: solid var(--header-bg-color);
+}
+
+.form-control{
+    margin-right: 10px;
+}
+.price{
+    width: 100px;
+}
+.recherche .btn{
+    border: solid var(--dark-bg-color);
+    background-color: var(--dark-bg-color);
+    color: var(--theme-bg-color);
+}
+.recherche .btn:hover{
+    background-color: var(--body-bg-color);
+    color: var(--body-color);
+}
+
+/// Food list
+.list{
+    margin: 10px 20px;
+}
+.plat{
+    display: inline-block;
+    border: solid var(--color-disabled);
+    border-radius: 1em;
+    margin: 10px;
+}
+
+@media (min-width:768px){
+    .restaurant{
+        max-height: 600px;
+        overflow-y: auto;
+    }
+    .recherche{
+        display: flex;
+    }
+    .recherche .form-inline{
+        flex: 1;
+        float: left;
+    }
+    .right{
+        float: right;
+    }
+    .list{
+        max-height: 600px;
+        overflow-y: auto;
+    }
+    .plat{
+        width: 400px;
+    }
+    .plat .image img{
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .content{
+        display: inline;
+        padding: 0;
+    }
+    .part:first-child{
+        margin-bottom: 20px;
+    }
+    .part{
+        width: 100%;
+    }
+    .restaurant-item{
+        display: inline-block;
+        width: 40%;
+    }
+    .form-control{
+        width: 45%;
+        margin: 5px;
+    }
+    .recherche .btn{
+        width: 100%;
+    }
+    .plat{
+        width: 300px;
+    }
+    .plat .image img{
+        width: 100px;
+        height: 100px;
+    }
+}

@@ -1,0 +1,43 @@
+@import url(../../menu/menu.component.scss);
+
+.image{
+    float: left;
+}
+.info{
+    padding: 10px;
+    float: left;
+}
+.order{
+    margin-top: 20px;
+}
+.form-control{
+    width: 75px;
+}
+
+img{
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+
+.name{
+    color: var(--header-bg-color);
+    font-size: 22px;
+    font-family: var(--nav-font);
+}
+
+@media (min-width:768px){
+    .image img{
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    img{
+        border-bottom-left-radius: 0;
+    }
+    .image img{
+        width: 100px;
+        height: 100px;
+    }
+}

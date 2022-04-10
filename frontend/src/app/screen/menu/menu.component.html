@@ -1,0 +1,49 @@
+<div class="content">
+    <div class="part restaurant">
+        <div class="title">
+            <h2>Restaurants</h2>
+        </div>
+        <div class="filter">
+            <button type="button" (click)="filter()">Filtrer</button><br/>
+            <span (click)="reset()">Réinitialiser</span>
+        </div>
+        <div class="body">
+            <div 
+                *ngFor="let restaurant of restaurants" 
+                class="restaurant-item" 
+                [ngClass]="{'active': getRestaurantActive(restaurant._id)}"
+                (click)="handleClick(restaurant._id)"
+            >
+                <span>{{ restaurant.username }}</span>
+            </div>
+        </div>
+        
+    </div>
+    <div class="part plats">
+        <div class="recherche">
+            <div class="form-inline ">
+                <input type="text" placeholder="Nom" class="form-control" [(ngModel)]="recherche.name">
+                <input type="text" placeholder="Catégorie" class="form-control" [(ngModel)]="recherche.type">
+                <input type="number" placeholder="Prix min" class="form-control price" [(ngModel)]="recherche.min">
+                <input type="number" placeholder="Prix max" class="form-control price" [(ngModel)]="recherche.max">
+            </div>
+            <div class="right">
+                <button class="form-control btn" (click)="rechercher()">Rechercher</button>
+            </div>      
+        </div>
+        <div class="list">
+            <div *ngIf="loader">
+                <Loader [height]="100"></Loader>
+            </div>
+            <div *ngIf="!loader">
+                <div *ngIf="plats.length === 0">
+                    Pas de données
+                </div>
+                <div *ngFor="let plat of plats" class="plat">
+                    <Plat [plat]="plat"></Plat>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

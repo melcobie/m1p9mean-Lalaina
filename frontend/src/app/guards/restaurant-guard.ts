@@ -21,7 +21,7 @@ export class RestaurantGuard implements CanActivate{
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         if(this.user?.user?.type?.identifier === userType.RESTAURANT) return true;
-        this.router.navigateByUrl("");
+        this.router.navigateByUrl("/signin");
         return false;
     }
 }

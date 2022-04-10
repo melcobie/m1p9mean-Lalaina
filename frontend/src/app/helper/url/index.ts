@@ -16,5 +16,8 @@ export const url = {
         get: "/plat",
         new: "/plat/new",
         updateOrDelete: "/plat/",
+    },
+    commande: {
+        new: "/commande",
     }
 }

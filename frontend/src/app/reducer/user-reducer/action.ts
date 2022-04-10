@@ -2,7 +2,9 @@ import { Action } from "@ngrx/store";
 
 export const type = {
     SIGNIN : "SIGNIN",
-    SIGNOUT: "SIGNOUT"
+    SIGNOUT: "SIGNOUT",
+    ADD: "ADD",
+    DELETE: "DELETE",
 }
 
 export class SigninAction implements Action{
@@ -15,6 +17,18 @@ export class SignoutAction implements Action{
     constructor(public payload: any){}
 }
 
+export class AddAction implements Action{
+    readonly type = type.ADD;
+    constructor(public payload: any){}
+}
+
+export class DeleteAction implements Action{
+    readonly type = type.DELETE;
+    constructor(public payload: any){}
+}
+
 export type All = 
     SigninAction
-    | SignoutAction;
+    | SignoutAction
+    | AddAction
+    | DeleteAction;

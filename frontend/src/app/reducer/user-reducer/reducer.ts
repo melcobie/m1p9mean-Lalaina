@@ -9,6 +9,11 @@ export type Action = EKalyAction.All
 export const initialState : EKalyStore = {
     user: null,
     accessToken: "",
+    commande: {
+        plats: [],
+        price: 0,
+        costPrice: 0,
+    },
 }
 
 
@@ -24,7 +29,26 @@ function reducer(state: EKalyStore = initialState, action: Action):EKalyStore{
             return {
                 user: null,
                 accessToken: "",
+                commande: {
+                    plats: [],
+                    price: 0,
+                    costPrice: 0,
+                },
             };
+        case type.ADD:
+            return {
+                ...state,
+                commande: action.payload,
+            };
+        case type.DELETE:
+            return {
+                ...state,
+                commande: {
+                    plats: [],
+                    price: 0,
+                    costPrice: 0,
+                },
+            }
         default:
             return state;
     }

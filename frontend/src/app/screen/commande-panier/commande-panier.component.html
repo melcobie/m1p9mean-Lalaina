@@ -1,0 +1,56 @@
+<div class="content">
+    <div class="head">
+        <h2>Votre panier</h2>
+        <div class="right">
+            <input
+                type="text"
+                name="location"
+                class="form-control addresse"
+                placeholder="Addresse de Livraison"
+                [(ngModel)]="addresse"
+            >
+        </div>
+        <div class="button right btn btn-success" (click)="command()">
+            Confirmer la commande
+        </div>
+    </div>
+    <div class="body body-container">
+        <div class="top">
+            Total: {{ commande.price }} Ar
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="2">Plat</th>
+                    <th>Quantite</th>
+                    <th>Prix unitaire</th>
+                    <th>Prix</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let plat of commande.plats">
+                    <td>
+                        <img [src]="fileUrl(plat.plat.image)"
+                            onerror="this.onerror=null;this.src='../../../assets/images/icons8-nourriture-morte-100.png';"
+                            width="50" height="50"
+                        />
+                    </td>
+                    <td>{{ plat.plat.name }}</td>
+                    <td><input
+                        type="number"
+                        class="form-control price"
+                        name="quantity"
+                        [value]="plat.quantite"
+                        (change)="handleChange(plat.plat, $event)"
+                    ></td>
+                    <td>{{ plat.plat.price }} Ar</td>
+                    <td>{{ plat.price }} Ar</td>
+                    <td>
+                        <img src="../../../assets/images/icons8-remove-48.png" width="20" (click)="delete(plat.plat)"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
