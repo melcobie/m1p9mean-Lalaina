@@ -13,6 +13,9 @@ export const initialState : EKalyStore = {
         plats: [],
         price: 0,
         costPrice: 0,
+        etatLivraison: {
+            delivered: false,
+        }
     },
 }
 
@@ -33,6 +36,9 @@ function reducer(state: EKalyStore = initialState, action: Action):EKalyStore{
                     plats: [],
                     price: 0,
                     costPrice: 0,
+                    etatLivraison: {
+                        delivered: false,
+                    }
                 },
             };
         case type.ADD:
@@ -47,6 +53,9 @@ function reducer(state: EKalyStore = initialState, action: Action):EKalyStore{
                     plats: [],
                     price: 0,
                     costPrice: 0,
+                    etatLivraison: {
+                        delivered: false,
+                    }
                 },
             }
         default:

@@ -12,7 +12,7 @@ import { EKalyStore } from 'src/app/reducer/user-reducer/type';
   styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent implements OnInit {
-  username: string = "";
+  username: string = "ekaly.lalaina@gmail.com";
   password: string = "123456";
   error: string = "";
   loader: boolean = false;

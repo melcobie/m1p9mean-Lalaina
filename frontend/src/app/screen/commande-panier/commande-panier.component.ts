@@ -17,6 +17,9 @@ export class CommandePanierComponent implements OnInit {
     plats: [],
     price: 0,
     costPrice: 0,
+    etatLivraison: {
+      delivered: false,
+    }
   };
   addresse: string = "";
 

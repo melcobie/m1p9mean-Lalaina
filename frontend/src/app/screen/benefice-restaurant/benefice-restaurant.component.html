@@ -1,0 +1,25 @@
+<div class="content">
+    <div class="head">
+        <h1>Bénéfice journalier</h1>
+    </div>
+    <div class="body body-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Jour</th>
+                    <th class="text-right">Total des ventes</th>
+                    <th class="text-right">Total des dépenses</th>
+                    <th class="text-right">Recette</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let jour of benefice">
+                    <td>{{ jour._id }}</td>
+                    <td class="text-right">{{ jour.totalPrice }} Ar</td>
+                    <td class="text-right">{{ jour.costPrice}} Ar</td>
+                    <td class="text-right">{{ jour.recipe }} Ar</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 
@@ -26,6 +26,11 @@ import { CommandePanierComponent } from './screen/commande-panier/commande-panie
 import { CommandesComponent } from './screen/commandes/commandes.component';
 import { CommandeDetailsComponent } from './screen/commande-details/commande-details.component';
 import { CommandeRestaurantComponent } from './screen/commande-restaurant/commande-restaurant.component';
+import { BeneficeRestaurantComponent } from './screen/benefice-restaurant/benefice-restaurant.component';
+import { CommandeGlobaleComponent } from './screen/commande-globale/commande-globale.component';
+import { BeneficeComponent } from './screen/benefice/benefice.component';
+import { NotAuthorizedComponent } from './screen/not-authorized/not-authorized.component';
+import { ErrorCatchingInterceptor } from './helper/interceptor';
 
 @NgModule({
   declarations: [
@@ -49,6 +54,10 @@ import { CommandeRestaurantComponent } from './screen/commande-restaurant/comman
     CommandesComponent,
     CommandeDetailsComponent,
     CommandeRestaurantComponent,
+    BeneficeRestaurantComponent,
+    CommandeGlobaleComponent,
+    BeneficeComponent,
+    NotAuthorizedComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +66,13 @@ import { CommandeRestaurantComponent } from './screen/commande-restaurant/comman
     FormsModule,
     StoreModule.forRoot(reducers),
   ],
-  providers: [],
+  providers: [
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: ErrorCatchingInterceptor,
+        multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

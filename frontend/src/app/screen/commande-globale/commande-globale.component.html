@@ -1,0 +1,40 @@
+<div class="content">
+    <h1>Voir les commandes</h1>
+    <div class="body-container">     
+        <div class="top justify-content-center">
+            <ul class="nav justify-content-center">
+                <li class="nav-item" [ngClass]="{'active':!delivered}" (click)="handle(false)">
+                    <a class="nav-link">En cours</a>
+                </li>
+                <li class="nav-item" [ngClass]="{'active':delivered}" (click)="handle(true)">
+                    <a class="nav-link">Livré</a>
+                </li>
+            </ul>        
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Client</th>
+                    <th>Addresse</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="!loader && !noData" >
+                <tr *ngFor="let commande of commandes" (click)="goToDetails(commande._id)">
+                    <td>{{ date(commande.date) }}</td>
+                    <td>{{ commande.client.username }}</td>
+                    <td>{{ commande.addresse }}</td>
+                </tr>
+            </tbody>
+            <tbody *ngIf="!loader && noData">
+                <tr class="loader">
+                    <td colspan="4">Pas de données</td>
+                </tr>
+            </tbody>
+            <tr *ngIf="loader" class="loader">
+                <td colspan="4"><Loader [height]="100"></Loader></td>
+            </tr>
+        </table>
+        
+    </div> 
+</div>

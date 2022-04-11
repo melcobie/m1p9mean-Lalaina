@@ -10,6 +10,8 @@ export class HeaderAdminComponent implements OnInit {
   active: any ={
     restaurant: false,
     livreur: false,
+    commande: false,
+    benefice: false,
   }
  constructor() { 
    
@@ -18,6 +20,8 @@ export class HeaderAdminComponent implements OnInit {
   ngOnInit(): void {
     this.active.restaurant = this.url.includes("/restaurants")? true: false;
     this.active.livreur = this.url.includes("/livreurs")? true: false;
+    this.active.commande = this.url.includes("/commande")? true: false;
+    this.active.livreur = this.url.includes("/benefice")? true: false;
   }
 
 }

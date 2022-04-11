@@ -12,7 +12,7 @@ const livreurRoutes : Routes = [
     {
         path: "commande/:id",
         component: CommandeDetailsComponent,
-        canActivate: [LivreurGuard],
+        // canActivate: [LivreurGuard],
     }
 ];
 

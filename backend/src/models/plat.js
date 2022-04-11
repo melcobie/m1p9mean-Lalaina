@@ -22,11 +22,6 @@ const platSchema = mongoose.Schema({
     restaurant: {
         type: Object,
         required: true,
-        schema: {
-            _id: { type: String, required: true},
-            name: { type: String, required: true},
-            location: { type: String }
-        },
     }
 },{
     collation: { locale: "en", strength:2}

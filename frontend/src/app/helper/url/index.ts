@@ -21,5 +21,9 @@ export const url = {
         new: "/commande/",
         get: "/commande/filter",
         deliver: "/commande/deliver/",
+    },
+    benefice: {
+        restaurant: "/benefice/restaurant",
+        daily: "/benefice/day",
     }
 }

@@ -10,10 +10,12 @@ export class HeaderRestaurantComponent implements OnInit {
   active: any ={
     plats: false,
     commandes: false,
+    benefice: false,
   }
  constructor() { 
   this.active.plats = this.url.includes("/plats")? true: false;
   this.active.commandes = this.url.includes("/commande")? true: false;
+  this.active.benefice = this.url.includes("/benefice")? true: false;
  }
 
   ngOnInit(): void {

@@ -15,6 +15,7 @@ export class Service{
         // //prod
         // this.baseUrlProd = "https://m1p9mean-lalaina.herokuapp.com/api"; 
         this.baseUrl = this.baseUrlProd !== ""? this.baseUrlProd : "http://localhost:3000/api";
+        
     }
 
     headerWithToken = (token:string) => {

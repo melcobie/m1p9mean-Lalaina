@@ -1,14 +1,22 @@
 <div class="content">
     <div class="head">
         <h2>Détails Commande</h2>
-        <div class="button right btn btn-success" (click)="livrer()">
+        <div 
+            *ngIf="isLivreur"
+            class="button right btn btn-success" 
+            (click)="livrer()"
+            [ngClass]="{'disabled':commande.etatLivraison.delivered}"
+        >
             Livrer
         </div>
     </div>
     <div class="body body-container">
         <div class="top">
-            Addresse: {{ commande.addresse }}
-            Total: {{ commande.price }} Ar
+            <p>Date de commande: {{ date(commande.date) }}</p>
+            <p>Addresse: {{ commande.addresse }}</p>
+            <p>Total: {{ commande.price }} Ar</p>
+            <p>Date de livraison: {{ date(commande.etatLivraison.dateLivraison) || " -- "}}</p>
+            <p>Livreur: {{ commande.etatLivraison.livreur?.username || " -- "}}</p>
         </div>
         <table class="table">
             <thead>

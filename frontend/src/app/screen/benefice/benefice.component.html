@@ -1,0 +1,42 @@
+<div class="content">
+    <div class="head">
+        <h1>Bénéfice</h1>
+    </div>
+    <div class="body body-container">
+        <div class="top justify-content-center">
+            <ul class="nav justify-content-center">
+                <li class="nav-item" [ngClass]="{'active':daily}" (click)="handle(true)">
+                    <a class="nav-link">Bénefice par jour</a>
+                </li>
+                <li class="nav-item" [ngClass]="{'active':!daily}" (click)="handle(false)">
+                    <a class="nav-link">Bénéfice par restaurant</a>
+                </li>
+            </ul>        
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Jour</th>
+                    <th class="text-right">Total des ventes</th>
+                    <th class="text-right">Total des dépenses</th>
+                    <th class="text-right">Recette</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let jour of benefice">
+                    <td>
+                        <span *ngIf="daily">
+                            {{ jour._id }}
+                        </span>
+                        <span *ngIf="!daily">
+                            {{ jour._id.username }}
+                        </span>
+                    </td>
+                    <td class="text-right">{{ jour.totalPrice }} Ar</td>
+                    <td class="text-right">{{ jour.costPrice}} Ar</td>
+                    <td class="text-right">{{ jour.recipe }} Ar</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

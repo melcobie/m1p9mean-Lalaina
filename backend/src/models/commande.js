@@ -32,7 +32,7 @@ const commandeSchema = mongoose.Schema({
         },
         schema: {
             delivered: { type: Boolean, required: true },
-            livreur: { type: String, },
+            livreur: { type: Object, },
             dateLivraison: { type: Date }
         }
     },
